@@ -13,9 +13,6 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as TasksIndexRouteImport } from './routes/tasks/index'
 import { Route as CampaignsIndexRouteImport } from './routes/campaigns/index'
 import { Route as CampaignsCampaignIdRouteImport } from './routes/campaigns/$campaignId'
-import { Route as CampaignsCampaignIdTasksIndexRouteImport } from './routes/campaigns/$campaignId/tasks/index'
-import { Route as CampaignsCampaignIdTasksNewRouteImport } from './routes/campaigns/$campaignId/tasks/new'
-import { Route as CampaignsCampaignIdTasksTaskIdEditRouteImport } from './routes/campaigns/$campaignId/tasks/$taskId/edit'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -37,86 +34,37 @@ const CampaignsCampaignIdRoute = CampaignsCampaignIdRouteImport.update({
   path: '/campaigns/$campaignId',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CampaignsCampaignIdTasksIndexRoute =
-  CampaignsCampaignIdTasksIndexRouteImport.update({
-    id: '/tasks/',
-    path: '/tasks/',
-    getParentRoute: () => CampaignsCampaignIdRoute,
-  } as any)
-const CampaignsCampaignIdTasksNewRoute =
-  CampaignsCampaignIdTasksNewRouteImport.update({
-    id: '/tasks/new',
-    path: '/tasks/new',
-    getParentRoute: () => CampaignsCampaignIdRoute,
-  } as any)
-const CampaignsCampaignIdTasksTaskIdEditRoute =
-  CampaignsCampaignIdTasksTaskIdEditRouteImport.update({
-    id: '/tasks/$taskId/edit',
-    path: '/tasks/$taskId/edit',
-    getParentRoute: () => CampaignsCampaignIdRoute,
-  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/campaigns/$campaignId': typeof CampaignsCampaignIdRouteWithChildren
+  '/campaigns/$campaignId': typeof CampaignsCampaignIdRoute
   '/campaigns': typeof CampaignsIndexRoute
   '/tasks': typeof TasksIndexRoute
-  '/campaigns/$campaignId/tasks/new': typeof CampaignsCampaignIdTasksNewRoute
-  '/campaigns/$campaignId/tasks': typeof CampaignsCampaignIdTasksIndexRoute
-  '/campaigns/$campaignId/tasks/$taskId/edit': typeof CampaignsCampaignIdTasksTaskIdEditRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/campaigns/$campaignId': typeof CampaignsCampaignIdRouteWithChildren
+  '/campaigns/$campaignId': typeof CampaignsCampaignIdRoute
   '/campaigns': typeof CampaignsIndexRoute
   '/tasks': typeof TasksIndexRoute
-  '/campaigns/$campaignId/tasks/new': typeof CampaignsCampaignIdTasksNewRoute
-  '/campaigns/$campaignId/tasks': typeof CampaignsCampaignIdTasksIndexRoute
-  '/campaigns/$campaignId/tasks/$taskId/edit': typeof CampaignsCampaignIdTasksTaskIdEditRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/campaigns/$campaignId': typeof CampaignsCampaignIdRouteWithChildren
+  '/campaigns/$campaignId': typeof CampaignsCampaignIdRoute
   '/campaigns/': typeof CampaignsIndexRoute
   '/tasks/': typeof TasksIndexRoute
-  '/campaigns/$campaignId/tasks/new': typeof CampaignsCampaignIdTasksNewRoute
-  '/campaigns/$campaignId/tasks/': typeof CampaignsCampaignIdTasksIndexRoute
-  '/campaigns/$campaignId/tasks/$taskId/edit': typeof CampaignsCampaignIdTasksTaskIdEditRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/campaigns/$campaignId'
-    | '/campaigns'
-    | '/tasks'
-    | '/campaigns/$campaignId/tasks/new'
-    | '/campaigns/$campaignId/tasks'
-    | '/campaigns/$campaignId/tasks/$taskId/edit'
+  fullPaths: '/' | '/campaigns/$campaignId' | '/campaigns' | '/tasks'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/campaigns/$campaignId'
-    | '/campaigns'
-    | '/tasks'
-    | '/campaigns/$campaignId/tasks/new'
-    | '/campaigns/$campaignId/tasks'
-    | '/campaigns/$campaignId/tasks/$taskId/edit'
-  id:
-    | '__root__'
-    | '/'
-    | '/campaigns/$campaignId'
-    | '/campaigns/'
-    | '/tasks/'
-    | '/campaigns/$campaignId/tasks/new'
-    | '/campaigns/$campaignId/tasks/'
-    | '/campaigns/$campaignId/tasks/$taskId/edit'
+  to: '/' | '/campaigns/$campaignId' | '/campaigns' | '/tasks'
+  id: '__root__' | '/' | '/campaigns/$campaignId' | '/campaigns/' | '/tasks/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  CampaignsCampaignIdRoute: typeof CampaignsCampaignIdRouteWithChildren
+  CampaignsCampaignIdRoute: typeof CampaignsCampaignIdRoute
   CampaignsIndexRoute: typeof CampaignsIndexRoute
   TasksIndexRoute: typeof TasksIndexRoute
 }
@@ -151,49 +99,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CampaignsCampaignIdRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/campaigns/$campaignId/tasks/': {
-      id: '/campaigns/$campaignId/tasks/'
-      path: '/tasks'
-      fullPath: '/campaigns/$campaignId/tasks'
-      preLoaderRoute: typeof CampaignsCampaignIdTasksIndexRouteImport
-      parentRoute: typeof CampaignsCampaignIdRoute
-    }
-    '/campaigns/$campaignId/tasks/new': {
-      id: '/campaigns/$campaignId/tasks/new'
-      path: '/tasks/new'
-      fullPath: '/campaigns/$campaignId/tasks/new'
-      preLoaderRoute: typeof CampaignsCampaignIdTasksNewRouteImport
-      parentRoute: typeof CampaignsCampaignIdRoute
-    }
-    '/campaigns/$campaignId/tasks/$taskId/edit': {
-      id: '/campaigns/$campaignId/tasks/$taskId/edit'
-      path: '/tasks/$taskId/edit'
-      fullPath: '/campaigns/$campaignId/tasks/$taskId/edit'
-      preLoaderRoute: typeof CampaignsCampaignIdTasksTaskIdEditRouteImport
-      parentRoute: typeof CampaignsCampaignIdRoute
-    }
   }
 }
 
-interface CampaignsCampaignIdRouteChildren {
-  CampaignsCampaignIdTasksNewRoute: typeof CampaignsCampaignIdTasksNewRoute
-  CampaignsCampaignIdTasksIndexRoute: typeof CampaignsCampaignIdTasksIndexRoute
-  CampaignsCampaignIdTasksTaskIdEditRoute: typeof CampaignsCampaignIdTasksTaskIdEditRoute
-}
-
-const CampaignsCampaignIdRouteChildren: CampaignsCampaignIdRouteChildren = {
-  CampaignsCampaignIdTasksNewRoute: CampaignsCampaignIdTasksNewRoute,
-  CampaignsCampaignIdTasksIndexRoute: CampaignsCampaignIdTasksIndexRoute,
-  CampaignsCampaignIdTasksTaskIdEditRoute:
-    CampaignsCampaignIdTasksTaskIdEditRoute,
-}
-
-const CampaignsCampaignIdRouteWithChildren =
-  CampaignsCampaignIdRoute._addFileChildren(CampaignsCampaignIdRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  CampaignsCampaignIdRoute: CampaignsCampaignIdRouteWithChildren,
+  CampaignsCampaignIdRoute: CampaignsCampaignIdRoute,
   CampaignsIndexRoute: CampaignsIndexRoute,
   TasksIndexRoute: TasksIndexRoute,
 }
