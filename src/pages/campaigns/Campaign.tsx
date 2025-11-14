@@ -34,8 +34,8 @@ const Campaign = ({ id, name, description, status, tasks: initialTasks }: Campai
         <TaskNew
           isOpen={showModal}
           campaignId={id}
-          onClose={() => setShowModal(false)}
           onSuccess={onTaskCreate}
+          onClose={() => setShowModal(false)}
         />
 
         <div className="grid grid-cols-1 gap-4 mt-2">

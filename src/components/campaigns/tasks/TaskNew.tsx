@@ -3,21 +3,15 @@ import TextInput from "../../generic/forms/TextInput"
 import TextArea from "../../generic/forms/TextArea"
 import Select from "../../generic/forms/Select"
 
-interface TaskFormModalProps {
+interface TaskNewProps {
   isOpen: boolean
   campaignId: number
+  onSuccess: (task: Task) => void
   onClose: () => void
-  onSuccess: () => void
 }
 
-const TaskFormModal = ({ isOpen, campaignId, onClose, onSuccess }: TaskFormModalProps) => {
-  const [formData, setFormData] = useState<Partial<Task>>({
-    title: '',
-    description: '',
-    status: 'todo',
-    priority: 'medium',
-    due_date: ''
-  })
+const TaskFormModal = ({ isOpen, campaignId, onSuccess, onClose }: TaskNewProps) => {
+  const [formData, setFormData] = useState<Partial<Task>>({ title: '', description: '', status: 'todo', priority: 'medium', due_date: '' })
   const [loading, setLoading] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
 
@@ -87,7 +81,7 @@ const TaskFormModal = ({ isOpen, campaignId, onClose, onSuccess }: TaskFormModal
             />
           </div>
 
-          <div className="col-span-2">
+          <div className="col-span-1">
             <Select
               label="Status"
               value={formData.status || 'todo'}
@@ -101,7 +95,7 @@ const TaskFormModal = ({ isOpen, campaignId, onClose, onSuccess }: TaskFormModal
             />
           </div>
 
-          <div className="col-span-2">
+          <div className="col-span-1">
             <Select
               label="Priority"
               value={formData.priority || 'medium'}
