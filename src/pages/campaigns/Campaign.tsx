@@ -18,7 +18,10 @@ const Campaign = ({ name, description, status, tasks }: CampaignProps) => {
           <p className="text-gray-400">Status: {status}</p>
         </div>
 
-        <h2 className="font-bold text-blue-200 mt-12">Campaign Tasks</h2>
+        <div className="flex items-center justify-between gap-4 mt-12">
+          <h2 className="font-bold text-blue-200">Campaign Tasks</h2>
+          <button>Add Task</button>
+        </div>
 
         <div className="grid grid-cols-1 gap-4">
           {tasks?.length > 0 ? (
