@@ -1,6 +1,6 @@
 import { Link } from '@tanstack/react-router'
 
-const TaskRow = ({ id, title, description, status }: Partial<Task>) => {
+const TaskCard = ({ id, title, description, status }: Partial<Task>) => {
   return (
     <Link
       to={`/tasks/${id}`}
@@ -13,4 +13,4 @@ const TaskRow = ({ id, title, description, status }: Partial<Task>) => {
   )
 }
 
-export default TaskRow
+export default TaskCard
