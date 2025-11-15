@@ -146,7 +146,7 @@ const TaskEdit = ({ isOpen, task, onSuccess, onClose }: TaskEditProps) => {
             <Select
               label="Created By"
               value={formData.created_by_id?.toString() || ''}
-              onChange={(e) => setFormData({ ...formData, created_by_id: e.target.value ? Number(e.target.value) : undefined })}
+              onChange={(e) => setFormData({ ...formData, created_by_id: e.target.value ? Number(e.target.value) : null })}
               error={errors.created_by_id}
               options={[{ value: '', label: 'Select user' }, ...userOptions]}
             />
@@ -156,7 +156,7 @@ const TaskEdit = ({ isOpen, task, onSuccess, onClose }: TaskEditProps) => {
             <Select
               label="Assigned To"
               value={formData.assigned_to_id?.toString() || ''}
-              onChange={(e) => setFormData({ ...formData, assigned_to_id: e.target.value ? Number(e.target.value) : undefined })}
+              onChange={(e) => setFormData({ ...formData, assigned_to_id: e.target.value ? Number(e.target.value) : null })}
               error={errors.assigned_to_id}
               options={[{ value: '', label: 'Select user' }, ...userOptions]}
             />
