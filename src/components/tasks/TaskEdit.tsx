@@ -55,7 +55,7 @@ const TaskEdit = ({ isOpen, task, onSuccess, onClose }: TaskEditProps) => {
         if (data.errors) {
           setErrors(data.errors)
         } else {
-          setErrors({ overall: data.error || 'Failed to create task' })
+          setErrors({ overall: data.error || 'Failed to update task' })
         }
         return
       }
