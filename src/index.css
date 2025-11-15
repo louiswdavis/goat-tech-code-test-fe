@@ -41,9 +41,25 @@ button {
   transition: border-color 0.25s;
 }
 
+button.button--square {
+  padding: 0.6em;
+}
+
 button:hover {
   border-color: #646cff;
   color: #646cff;
+}
+
+button.button--link {
+  color: #ffffff;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+button.button--link:hover {
+  color: #646cff;
+  background-color: transparent;
+  border-color: transparent;
 }
 
 button:focus,

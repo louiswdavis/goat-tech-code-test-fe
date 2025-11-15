@@ -49,12 +49,12 @@ Here's a list of features we need the application to have:
 ✅ Ability to see all tasks in the system regardless of the campaign and the ability to edit them if needed.
 ✅ Because campaigns may have a lot of tasks, it would be beneficial to have a way to sort the tasks based on when they're due, their priority and/or whether they've already been completed (uncompleted high priority tasks that require immediate attention would need to be at the top).
 
-- The application doesn't look like much right now, perhaps add some styling (don't worry too much about the composition of the styling, we are not testing your design skills here). Feel free to completely change existing styling as well if you so wish.
-- This code test is to be used in conjunction with the backend of this test, which you will be provided with. Completion of both is a requirement in order to pass the test.
+✅ The application doesn't look like much right now, perhaps add some styling (don't worry too much about the composition of the styling, we are not testing your design skills here). Feel free to completely change existing styling as well if you so wish.
+✅ This code test is to be used in conjunction with the backend of this test, which you will be provided with. Completion of both is a requirement in order to pass the test.
 
 ### Bonus Round
 
-- Now that we can create tasks, it would be useful to know who's responsible for completing them..
+✅ Now that we can create tasks, it would be useful to know who's responsible for completing them..
 
 ## Additional Notes
 

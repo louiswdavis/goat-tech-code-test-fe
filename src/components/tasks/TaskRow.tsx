@@ -1,5 +1,6 @@
 import { useState } from "react"
 import TaskEdit from "./TaskEdit"
+import { PencilIcon } from "hugeicons-react"
 
 interface TaskRowProps {
   task: Task
@@ -45,34 +46,45 @@ const TaskRow = ({ task: initialTask, onTaskUpdate }: TaskRowProps) => {
   return (
     <>
       <tr className="border-b bg-gray-800/70 border-gray-700 hover:bg-gray-750">
-        <td className="px-6 py-4">
+        <td className="px-4 py-3">
           <div>
             <p className="font-semibold text-white">{task.title}</p>
             <p className="text-gray-400 text-xs mt-1">{task.description}</p>
           </div>
         </td>
 
-        <td className="px-6 py-4">
+        <td className="px-4 py-3">{task.campaign_name}</td>
+
+        <td className="px-4 py-3">
+          <div>
+            <p className="text-300">{task.assigned_to_name || '-'}</p>
+            <p className="text-gray-300 text-xs mt-1">{task.created_by_name || '-'}</p>
+          </div>
+        </td>
+
+        <td className="px-4 py-3">
           <div className="flex flex-row items-center gap-2">
             <div className={`${getStatus(task.status).colour} w-3 h-3 rounded-full`}></div>
             <span className="text-gray-300">{getStatus(task.status).label}</span>
           </div>
         </td>
 
-        <td className="px-6 py-4">
+        <td className="px-4 py-3">
           <div className="flex flex-row items-center gap-2">
             <div className={`${getPriority(task.priority).colour} w-3 h-3 rounded-full`}></div>
             <span className="text-gray-300">{getPriority(task.priority).label}</span>
           </div>
         </td>
 
-        <td className="px-6 py-4">
+        <td className="px-4 py-3">
           <span className="text-gray-300">{formatDate(task.due_date)}</span>
         </td>
 
-        <td className="px-6 py-4">
-          <div className="flex gap-3">
-            <button onClick={() => setShowModal(true)}>Edit</button>
+        <td className="px-4 py-3">
+          <div className="flex justify-center gap-3">
+            <button className="button--square button--link" onClick={() => setShowModal(true)}>
+              <PencilIcon size={16} strokeWidth={2.5} className="mt-px" />
+            </button>
           </div>
         </td>
       </tr>
