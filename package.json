@@ -13,6 +13,7 @@
     "@tailwindcss/vite": "^4.1.13",
     "@tanstack/react-router": "^1.132.31",
     "@tanstack/react-router-devtools": "^1.132.31",
+    "hugeicons-react": "^0.3.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "tailwindcss": "^4.1.13"
