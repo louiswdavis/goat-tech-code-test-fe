@@ -103,7 +103,7 @@ const Tasks = ({ tasks: initialTasks }: { tasks: Task[] }) => {
               </tbody>
             </table>
           ) : (
-            <p className="text-gray-400">No tasks available</p>
+            <p className="text-gray-400">No tasks found</p>
           )}
         </div>
       </div>

@@ -125,7 +125,7 @@ const Campaign = ({ id, name, description, status, tasks: initialTasks }: Campai
               </tbody>
             </table>
           ) : (
-            <p className="text-gray-400">No tasks available</p>
+            <p className="text-gray-400">No tasks found. Try creating a new one.</p>
           )}
         </div>
       </div>
