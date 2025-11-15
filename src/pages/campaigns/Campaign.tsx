@@ -15,8 +15,8 @@ const Campaign = ({ id, name, description, status, tasks: initialTasks }: Campai
   }
 
   return (
-    <div className="h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 to-blue-950">
-      <div className="w-full max-w-2xl p-8 rounded-xl shadow-lg bg-gray-800/90 flex flex-col">
+    <div className="h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 to-blue-950 p-8">
+      <div className="w-full max-w-4xl p-8 rounded-xl shadow-lg bg-gray-800/90 flex flex-col overflow-y-hidden">
         <h1 className="text-3xl font-bold text-center text-blue-300 mb-2">
           {name} Management
         </h1>
@@ -38,7 +38,7 @@ const Campaign = ({ id, name, description, status, tasks: initialTasks }: Campai
           onClose={() => setShowModal(false)}
         />
 
-        <div className="grid grid-cols-1 gap-4 mt-2">
+        <div className="grid grid-cols-1 gap-4 mt-2 overflow-y-scroll">
           {tasks?.length > 0 ? (
             tasks.map((task) => (
               <TaskCard key={task.id} task={task} />
