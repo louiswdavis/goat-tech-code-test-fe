@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import TextInput from "../generic/forms/TextInput"
 import TextArea from "../generic/forms/TextArea"
 import Select from "../generic/forms/Select"
@@ -13,8 +13,29 @@ interface TaskEditProps {
 
 const TaskEdit = ({ isOpen, task, onSuccess, onClose }: TaskEditProps) => {
   const [formData, setFormData] = useState<Partial<Task>>(task)
+  const [users, setUsers] = useState<User[]>([])
   const [loading, setLoading] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
+
+  useEffect(() => {
+    if (isOpen) {
+      loadForm()
+    }
+  }, [isOpen])
+
+  const loadForm = async () => {
+    try {
+      const res = await fetch(`http://localhost:3000/api/v1/tasks/${task.id}/edit`)
+      const data = await res.json()
+
+      if (res.ok) {
+        setUsers(data.users)
+        setFormData(data.task)
+      }
+    } catch (err) {
+      console.error('Failed to fetch users:', err)
+    }
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -50,6 +71,8 @@ const TaskEdit = ({ isOpen, task, onSuccess, onClose }: TaskEditProps) => {
   }
 
   if (!isOpen) return null
+
+  const userOptions = users.map(u => ({ value: u.id.toString(), label: u.name }))
 
   return (
     <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
@@ -116,6 +139,26 @@ const TaskEdit = ({ isOpen, task, onSuccess, onClose }: TaskEditProps) => {
               value={formData.due_date || ''}
               onChange={(e) => setFormData({ ...formData, due_date: e.target.value })}
               error={errors.due_date}
+            />
+          </div>
+
+          <div className="col-span-2">
+            <Select
+              label="Created By"
+              value={formData.created_by_id?.toString() || ''}
+              onChange={(e) => setFormData({ ...formData, created_by_id: e.target.value ? Number(e.target.value) : undefined })}
+              error={errors.created_by_id}
+              options={[{ value: '', label: 'Select user' }, ...userOptions]}
+            />
+          </div>
+
+          <div className="col-span-2">
+            <Select
+              label="Assigned To"
+              value={formData.assigned_to_id?.toString() || ''}
+              onChange={(e) => setFormData({ ...formData, assigned_to_id: e.target.value ? Number(e.target.value) : undefined })}
+              error={errors.assigned_to_id}
+              options={[{ value: '', label: 'Select user' }, ...userOptions]}
             />
           </div>
 
