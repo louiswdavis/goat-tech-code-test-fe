@@ -101,7 +101,7 @@ const Campaign = ({ id, name, description, status, tasks: initialTasks }: Campai
                     <div>Title</div>
                     <div className="font-light text-xs">Description</div>
                   </th>
-                  <th scope="col" className="px-4 py-3 w-48">
+                  <th scope="col" className="px-4 py-3 w-40">
                     <div>Assigned To</div>
                     <div className="font-light text-xs">Created By</div>
                   </th>

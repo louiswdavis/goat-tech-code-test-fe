@@ -79,7 +79,7 @@ const Tasks = ({ tasks: initialTasks }: { tasks: Task[] }) => {
                     <div className="font-light text-xs">Description</div>
                   </th>
                   <th scope="col" className="px-4 py-3 w-36">Campaign</th>
-                  <th scope="col" className="px-4 py-3 w-36">
+                  <th scope="col" className="px-4 py-3 w-40">
                     <div>Assigned To</div>
                     <div className="font-light text-xs">Created By</div>
                   </th>
