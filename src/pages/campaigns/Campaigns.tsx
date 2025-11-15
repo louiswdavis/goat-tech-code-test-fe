@@ -3,7 +3,7 @@ import CampaignCard from "../../components/campaigns/CampaignCard"
 const Campaigns = ({ campaigns }: { campaigns: Campaign[] }) => {
   return (
     <div className="h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 to-blue-950 p-8">
-      <div className="w-full max-w-4xl p-8 rounded-xl shadow-lg bg-gray-800/90 flex flex-col overflow-y-hidden">
+      <div className="w-full max-w-6xl p-8 rounded-xl shadow-lg bg-gray-800/90 flex flex-col overflow-y-hidden">
         <h1 className="text-3xl font-bold text-center text-blue-300 mb-2">
           Campaigns
         </h1>
