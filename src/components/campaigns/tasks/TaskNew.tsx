@@ -2,6 +2,7 @@ import { useState } from "react"
 import TextInput from "../../generic/forms/TextInput"
 import TextArea from "../../generic/forms/TextArea"
 import Select from "../../generic/forms/Select"
+import DateInput from "../../generic/forms/DateInput"
 
 interface TaskNewProps {
   isOpen: boolean
@@ -10,7 +11,7 @@ interface TaskNewProps {
   onClose: () => void
 }
 
-const TaskFormModal = ({ isOpen, campaignId, onSuccess, onClose }: TaskNewProps) => {
+const TaskNew = ({ isOpen, campaignId, onSuccess, onClose }: TaskNewProps) => {
   const [formData, setFormData] = useState<Partial<Task>>({ title: '', description: '', status: 'todo', priority: 'medium', due_date: '' })
   const [loading, setLoading] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
@@ -110,9 +111,8 @@ const TaskFormModal = ({ isOpen, campaignId, onSuccess, onClose }: TaskNewProps)
           </div>
 
           <div className="col-span-2">
-            <TextInput
+            <DateInput
               label="Due Date"
-              type="date"
               value={formData.due_date || ''}
               onChange={(e) => setFormData({ ...formData, due_date: e.target.value })}
               error={errors.due_date}
@@ -142,4 +142,4 @@ const TaskFormModal = ({ isOpen, campaignId, onSuccess, onClose }: TaskNewProps)
   )
 }
 
-export default TaskFormModal
+export default TaskNew
