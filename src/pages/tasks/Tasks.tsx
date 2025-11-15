@@ -66,7 +66,7 @@ const Tasks = ({ tasks: initialTasks }: { tasks: Task[] }) => {
         </h1>
 
         <p className="text-center text-gray-300 mb-6">
-          Browse and manage all tasks below. Sorted by status, priority, and due date by default.
+          Browse and manage all tasks below. By default tasks are sorted by status, then by priority, then by due date.
         </p>
 
         <div className="mt-4 overflow-y-auto flex-1">
@@ -74,20 +74,25 @@ const Tasks = ({ tasks: initialTasks }: { tasks: Task[] }) => {
             <table className="w-full text-sm text-left text-gray-400 bg-gray-700">
               <thead className="bg-gray-700 text-gray-300">
                 <tr>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-4 py-3 w-1/4">
                     <div>Title</div>
                     <div className="font-light text-xs">Description</div>
                   </th>
-                  <th scope="col" className="px-6 py-3 w-36 cursor-pointer hover:text-blue-300" onClick={() => handleSort('status')}>
+                  <th scope="col" className="px-4 py-3 w-36">Campaign</th>
+                  <th scope="col" className="px-4 py-3 w-36">
+                    <div>Assigned To</div>
+                    <div className="font-light text-xs">Created By</div>
+                  </th>
+                  <th scope="col" className="px-4 py-3 w-36 cursor-pointer hover:text-blue-300" onClick={() => handleSort('status')}>
                     <span className="flex flex-row items-center">Status {getSortIcon('status')}</span>
                   </th>
-                  <th scope="col" className="px-6 py-3 w-36 cursor-pointer hover:text-blue-300" onClick={() => handleSort('priority')}>
+                  <th scope="col" className="px-4 py-3 w-36 cursor-pointer hover:text-blue-300" onClick={() => handleSort('priority')}>
                     <span className="flex flex-row items-center">Priority {getSortIcon('priority')}</span>
                   </th>
-                  <th scope="col" className="px-6 py-3 w-36 cursor-pointer hover:text-blue-300" onClick={() => handleSort('due_date')}>
+                  <th scope="col" className="px-4 py-3 w-36 cursor-pointer hover:text-blue-300" onClick={() => handleSort('due_date')}>
                     <span className="flex flex-row items-center">Due Date {getSortIcon('due_date')}</span>
                   </th>
-                  <th scope="col" className="px-6 py-3 w-28">Actions</th>
+                  <th scope="col" className="px-4 py-3 w-28 text-center">Actions</th>
                 </tr>
               </thead>
 
