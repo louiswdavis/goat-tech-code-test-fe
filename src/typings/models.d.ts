@@ -14,6 +14,13 @@ interface Task {
   due_date: string;
   campaign_id: number;
   campaign_name: string;
+  created_by_id: number;
   created_by_name: string;
+  assigned_to_id: number;
   assigned_to_name: string;
+}
+
+interface User {
+  id: number;
+  name: string;
 }
