@@ -1,7 +1,7 @@
 interface Campaign {
   id: number;
   name: string;
-  description?: string;
+  description: string;
   status: 'active' | 'completed' | 'archived';
 }
 
