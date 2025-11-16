@@ -145,20 +145,20 @@ const TaskNew = ({ isOpen, campaignId, onSuccess, onClose }: TaskNewProps) => {
           <div className="col-span-2">
             <Select
               label="Created By"
-              value={formData.created_by_id?.toString() || null}
-              onChange={(e) => setFormData({ ...formData, created_by_id: e.target.value ? Number(e.target.value) : undefined })}
+              value={formData.created_by_id?.toString() || ''}
+              onChange={(e) => setFormData({ ...formData, created_by_id: e.target.value ? Number(e.target.value) : null })}
               error={errors.created_by_id}
-              options={[{ value: null, label: 'Select user' }, ...userOptions]}
+              options={[{ value: '', label: 'Select user' }, ...userOptions]}
             />
           </div>
 
           <div className="col-span-2">
             <Select
               label="Assigned To"
-              value={formData.assigned_to_id?.toString() || null}
-              onChange={(e) => setFormData({ ...formData, assigned_to_id: e.target.value ? Number(e.target.value) : undefined })}
+              value={formData.assigned_to_id?.toString() || ''}
+              onChange={(e) => setFormData({ ...formData, assigned_to_id: e.target.value ? Number(e.target.value) : null })}
               error={errors.assigned_to_id}
-              options={[{ value: null, label: 'Select user' }, ...userOptions]}
+              options={[{ value: '', label: 'Select user' }, ...userOptions]}
             />
           </div>
 
